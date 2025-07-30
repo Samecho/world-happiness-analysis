@@ -18,6 +18,7 @@ FROM (
     FROM whr_raw whr
     JOIN continents c ON whr.continent_id = c.id
 ) AS ranked
+
 WHERE Gdp_rank < floor(0.5 * total_countries)
   AND Social_rank < floor(0.5 * total_countries)
   AND Health_rank < floor(0.5 * total_countries)
