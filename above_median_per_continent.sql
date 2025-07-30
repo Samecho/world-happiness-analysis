@@ -1,6 +1,6 @@
-DROP VIEW IF EXISTS top25pct_median_per_continent;
+DROP VIEW IF EXISTS above_median_per_continent;
 
-CREATE VIEW top25pct_median_per_continent AS
+CREATE VIEW above_median_per_continent AS
 SELECT *
 FROM (
     SELECT 
@@ -18,9 +18,9 @@ FROM (
     FROM whr_raw whr
     JOIN continents c ON whr.continent_id = c.id
 ) AS ranked
-WHERE Gdp_rank <= floor(0.25 * total_countries)
-  AND Social_rank <= floor(0.25 * total_countries)
-  AND Health_rank <= floor(0.25 * total_countries)
-  AND Freedom_rank <= floor(0.25 * total_countries)
-  AND Generosity_rank <= floor(0.25 * total_countries)
-  AND Corruption_rank < floor(0.75 * total_countries);
+WHERE Gdp_rank < floor(0.5 * total_countries)
+  AND Social_rank < floor(0.5 * total_countries)
+  AND Health_rank < floor(0.5 * total_countries)
+  AND Freedom_rank < floor(0.5 * total_countries)
+  AND Generosity_rank < floor(0.5 * total_countries)
+  AND Corruption_rank < floor(0.5 * total_countries);
