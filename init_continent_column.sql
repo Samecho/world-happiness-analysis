@@ -1,0 +1,2 @@
+ALTER TABLE whr_raw
+ADD COLUMN continent_id TINYINT UNSIGNED;
