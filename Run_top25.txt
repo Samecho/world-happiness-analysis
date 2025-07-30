@@ -1,0 +1,6 @@
+sqlite3 whr2024.db ".read top25pct_median_per_continent.sql"
+
+sqlite3 whr2024.db
+.headers ON
+.mode column
+SELECT * FROM top25pct_median_per_continent LIMIT 10;
