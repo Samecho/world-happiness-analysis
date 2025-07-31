@@ -7,6 +7,8 @@ conn <- dbConnect(RSQLite::SQLite(), dbname = "whr2024.db")
 
 dbListTables(conn)
 
-df <- dbReadTable(conn, "whr_raw")
+whr_raw <- dbReadTable(conn, "whr_raw")
 
-glimpse(df)
+
+whr <- whr_raw |>
+  mutate(across(Ladder.score:Explained.by..Perceptions.of.corruption, as.double))
