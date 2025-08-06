@@ -2,6 +2,7 @@ library(DBI)
 library(RSQLite)
 library(tidyverse)
 library(tidymodels)
+library(tidyclust)
 
 conn <- dbConnect(RSQLite::SQLite(), dbname = "whr2024.db")
 
