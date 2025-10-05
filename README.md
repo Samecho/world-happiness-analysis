@@ -14,7 +14,7 @@ This is a lightweight guide for running the WHR2024 project on Windows.
 ## **Quick Start**
 The simplest way to run everything:  
 
-**Double-click `9_run_all.bat`** in the project root.
+**Write `.\9_run_all.bat`  in Powershell to run `9_run_all.bat`** in the project root.
 
 ---
 
