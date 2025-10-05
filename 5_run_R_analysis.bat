@@ -13,5 +13,5 @@ echo Running R scripts (clustering.r, knn_predict.r)...
 Rscript clustering.r
 Rscript knn_predict.r
 
-echo R scripts finished. Check the current folder for generated images (e.g. elbow_plot.png, rmse_vs_k.png) and output/ for CSVs.
+echo R scripts finished. Check the output folder for generated images and CSVs.
 pause
