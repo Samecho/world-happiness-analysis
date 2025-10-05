@@ -33,7 +33,7 @@ elbow_plot <- ggplot(kmeans_elbow, aes(x = num_clusters, y = total_WSSD)) +
     labs(x = "K", y = "Total within-cluster sum of squares") +
     scale_x_continuous(breaks = 1:9)
 
-ggsave("elbow_plot.png", elbow_plot, width = 6, height = 4)
+ggsave("output/elbow_plot.png", elbow_plot, width = 6, height = 4)
 
 final_kmeans_spec <- k_means(num_clusters = 3) |>
     set_engine("stats")

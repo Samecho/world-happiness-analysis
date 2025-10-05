@@ -44,7 +44,7 @@ whr_k_plot <- ggplot(whr_results, aes(x = neighbors, y = mean)) +
     y = "Cross-validated RMSE")
 
 
-ggsave("rmse_vs_k.png", whr_k_plot, width = 6, height = 4)
+ggsave("output/rmse_vs_k.png", whr_k_plot, width = 6, height = 4)
 
 whr_min <- whr_results |>
   filter(mean == min(mean))
@@ -68,6 +68,7 @@ whr_summary <- whr_fit |>
 
 whr_summary
 
+# This country stats could be changed!
 new_country <- tibble(
   Explained.by..Log.GDP.per.capita = 1.0,    
   Explained.by..Social.support = 1.0,        
