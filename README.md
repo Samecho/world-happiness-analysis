@@ -1,4 +1,4 @@
-# World Hapiness Analysis Using SQL and R 
+# World Happiness Analysis Using SQL and R 
 
 This is a lightweight guide for running the WHR2024 project on Windows.
 
