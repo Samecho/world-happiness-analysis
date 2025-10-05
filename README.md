@@ -1,67 +1,46 @@
-# World-Happiness-Analysis
+# World Hapiness Analysis Using SQL and R 
 
-A project using SQL and R to analyze the 2024 World Happiness Report.
-
----
-
-## 📁 Files Overview
-
-| File | Description |
-|------|-------------|
-| `WHR2024.csv` / `whr2024.db` | Dataset in CSV and SQLite formats |
-| `init_continents_table.sql` | Creates `continents` table |
-| `init_continent_column.sql` | Adds `continent_id` column to raw data |
-| `update_continent_id.sql` | Populates `continent_id` for each country |
-| `above_median_per_continent.sql` | View of countries ranking top 50% in all six happiness factors per continent |
-| `happiness_index.sql` | Categorizes countries as `Very Happy`, `Happy`, `Sad`, `Very Sad` based on ladder score |
-| `knn_predict.sql` | A MySQL-style stored procedure that simulates KNN using Euclidean distance |
-| `knn_predict.r` | Predicts happiness score using KNN regression with tuning and v-fold CV |
-| `initialization.r` | Data prep: split, normalize, etc. |
-| `.bat` files | Run SQL scripts and print outputs in terminal |
-| `README.md` | This file |
+This is a lightweight guide for running the WHR2024 project on Windows.
 
 ---
 
-## ▶️ Quick Start
-
-### 📦 Initialize Database (SQLite)
-
-Run the following in your terminal or Command Prompt:
-
-```bat
-sqlite3 whr2024.db ".read init_continents_table.sql"
-sqlite3 whr2024.db ".read init_continent_column.sql"
-sqlite3 whr2024.db ".read update_continent_id.sql"
-```
-
-### 📊 Execute SQL Queries (with output)
-
-```bat
-above_median_per_continent_run.bat
-happiness_index_run.bat
-```
-
-> These scripts run `.sql` files and display results using `sqlite3`.
+## **Prerequisites**
+- Windows 10+  
+- SQLite CLI (`sqlite3`) in PATH: https://www.sqlite.org/download.html  
+- R (`Rscript` available in PATH): https://cran.r-project.org/bin/windows/  
 
 ---
 
-## 📌 Notes
+## **Quick Start**
+The simplest way to run everything:  
 
-- The `above_median_per_continent` view filters countries that rank in the **top 50%** of their continent in **all** six happiness indicators:
-  - GDP, Social support, Healthy life expectancy, Freedom, Generosity, Corruption perception
-
-- `happiness_index.sql` uses nested averages to assign each country a 4-level happiness label.
-
-- `knn_predict.sql` uses Euclidean distance to find the closest 5 countries to a given input vector.
-
-- `knn_predict.r` uses `tidymodels` and `kknn` to fit and tune a regression model.
+**Double-click `9_run_all.bat`** in the project root.
 
 ---
 
-## 🧠 Requirements
-
-- SQLite
-- R
-- Optional: MySQL (if you want to test `knn_predict.sql`)
+## **BAT Scripts Overview**
+| File | Purpose |
+|------|---------|
+| `0_check_environment.bat` | Check `sqlite3` and `Rscript` availability |
+| `01_create_db_from_csv.bat` | Import CSV to SQLite if DB is missing |
+| `02_init_sql_tables.bat` | Create `continents` table, add `continent_id`, update values |
+| `03_run_queries.bat` | Run SQL queries, export CSV outputs |
+| `04_install_R_packages.bat` | Install required R packages (tidyverse, tidymodels) |
+| `05_run_R_analysis.bat` | Run R scripts, generate plots |
 
 ---
+
+## **Important Notes**
+1. **SQLite vs MySQL:**  
+   - `knn_predict.sql` uses MySQL-style procedures (`DELIMITER`, `CREATE PROCEDURE`, `CALL`).  
+   - SQLite **does not support stored procedures**.  
+   - Use `knn_predict.r` instead for kNN predictions.
+
+2. **Outputs:**  
+   - CSV: `output/above_median_per_continent.csv`, `output/happiness_index.csv`  
+   - R plots: `elbow_plot.png`, `rmse_vs_k.png`
+
+3. **Troubleshooting:**  
+   - `sqlite3 not found` → add `sqlite3.exe` to PATH  
+   - `Rscript not found` → install R and restart terminal  
+   - R packages fail → run `install.packages()` manually
