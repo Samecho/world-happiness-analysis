@@ -22,11 +22,11 @@ The simplest way to run everything:
 | File | Purpose |
 |------|---------|
 | `0_check_environment.bat` | Check `sqlite3` and `Rscript` availability |
-| `01_create_db_from_csv.bat` | Import CSV to SQLite if DB is missing |
-| `02_init_sql_tables.bat` | Create `continents` table, add `continent_id`, update values |
-| `03_run_queries.bat` | Run SQL queries, export CSV outputs |
-| `04_install_R_packages.bat` | Install required R packages (tidyverse, tidymodels) |
-| `05_run_R_analysis.bat` | Run R scripts, generate plots |
+| `1_create_db_from_csv.bat` | Import CSV to SQLite if DB is missing |
+| `2_init_sql_tables.bat` | Create `continents` table, add `continent_id`, update values |
+| `3_run_queries.bat` | Run SQL queries, export CSV outputs |
+| `4_install_R_packages.bat` | Install required R packages (tidyverse, tidymodels) |
+| `5_run_R_analysis.bat` | Run R scripts, generate plots |
 
 ---
 
